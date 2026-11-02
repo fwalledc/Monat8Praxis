@@ -1,0 +1,6 @@
+# Eigene API-Suite (kein Framework).
+# Wir sprechen die API direkt an und pruefen die Antwort gegen den Vertrag.
+actor: ApiTester
+modules:
+    enabled:
+        - Asserts

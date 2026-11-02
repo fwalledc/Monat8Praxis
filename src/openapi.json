@@ -1,0 +1,41 @@
+{
+    "openapi": "3.0.3",
+    "info": { "title": "Order API", "version": "1.0.0" },
+    "paths": {
+        "/orders/{id}": {
+            "get": {
+                "summary": "Eine Bestellung abrufen",
+                "responses": {
+                    "200": {
+                        "description": "Die Bestellung",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": ["id", "status", "amount"],
+                                    "properties": {
+                                        "id":     { "type": "integer" },
+                                        "status": { "type": "string", "enum": ["open", "paid", "failed"] },
+                                        "amount": { "type": "number" }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Nicht gefunden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": ["error"],
+                                    "properties": { "error": { "type": "string" } }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
